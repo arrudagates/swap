@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while getopts ":h" option; do
+   case $option in
+      h) # display Help
+         	echo "Swap files or directories between each other"
+            echo
+            echo "Syntax: swap [file/dir] [file/dir]"
+            echo "to display this help message use the -h argument"
+         	echo
+         exit;;
+   esac
+done
+
+mv $1 "./temp1-makingsurethisfiledoesntexist"
+mv $2 "./temp2-makingsurethisfiledoesntexist"
+mv "./temp1-makingsurethisfiledoesntexist" $2
+mv "./temp2-makingsurethisfiledoesntexist" $1
